@@ -1,0 +1,20 @@
+<h1>Sign Up for Best Cookbook</h1>
+
+<% @user.validation_messages.each do |message| %>
+    <font color="red"><%= message %></br></font>
+<% end %>
+
+<%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %></br>
+
+    <h3> Let Us Know Your Allergies </h3> 
+    <% Ingredient.all.each do |ingredient| %>
+    <div>
+    <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id %> 
+    <%= ingredient.name %>
+    </div>
+    <% end %>
+    <br>
+    <%= f.submit %>
+<% end %>

@@ -6,10 +6,4 @@
     <% end %>
 </ol>
 
-<%= Recipe.recipe_ingredient_count %>
-
-
-
-<% Ingredient.user_allergen_sort.each do |k, v| %>
-    <li><%= link_to Ingredient.find(k).name, ingredient_path(Ingredient.find(k)) %></li>
-<% end %>
+<%= link_to 'View recipes sorted by most ingredients', recipes_sorted_path %>

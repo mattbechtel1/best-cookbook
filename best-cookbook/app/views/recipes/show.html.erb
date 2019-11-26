@@ -1,7 +1,17 @@
 <h1><%= @recipe.name %></h1>
 
 <h2><%= "#{@recipe.name} recipe: "%></h2>
+    <% unless @recipe.user.nil? %>
 <h5>by <%= link_to @recipe.user.name, user_path(@recipe.user) %></h5>
+    <% end %>
+
+<h4>Ingredients:</h4>
+
+<ul>
+    <% @recipe.ingredients.each do |ing| %>
+        <li><%= link_to ing.name, ingredient_path(ing) %></li>
+    <% end %>
+</ul>
 
 <p><%= @recipe.content %></p>
 

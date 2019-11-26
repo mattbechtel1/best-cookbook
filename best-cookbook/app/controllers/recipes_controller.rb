@@ -16,13 +16,13 @@ class RecipesController < ApplicationController
     def create
         @recipe = Recipe.new(recipe_params)
 
-        # if @recipe.valid?
+        if @recipe.valid?
             @recipe.title_case
             @recipe.save
             redirect_to recipe_path(@recipe)
-        # else
-        #     render :new
-        # end
+        else
+            render :new
+        end
     end
 
     private
@@ -36,6 +36,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-        params.require(:recipe).permit(:name, :content, :user_id)
+        params.require(:recipe).permit(:name, :content, :user_id, ingredient_ids: [])
     end
 end

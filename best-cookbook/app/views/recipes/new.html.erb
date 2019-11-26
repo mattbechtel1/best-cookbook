@@ -1,11 +1,24 @@
 <h1>Add a Recipe</h1>
 
+<% @recipe.validation_messages.each do |message| %>
+    <font color="red"><%= message %></br></font>
+<% end %>
+
 <%= form_for @recipe do |f| %>
     <p><%= f.label :name %>
     <%= f.text_field :name %></p>
     
     <p><%= f.label :content %>
     <%= f.text_area :content %></p>
+
+
+    <h3> Select Ingredients </h3> 
+    <% Ingredient.all.each do |ingredient| %>
+    <div>
+    <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id %> 
+    <%= ingredient.name %>
+    </div>
+    <% end %>
 
     <p><%= f.label :user_id %>
     <%= f.collection_select :user_id, User.all, :id, :name, prompt: true %></p>
