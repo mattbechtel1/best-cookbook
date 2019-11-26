@@ -1,0 +1,8 @@
+<h1><%= @recipe.name %></h1>
+
+<h2><%= "#{@recipe.name} recipe: "%></h2>
+
+<p><%= @recipe.content %></p>
+
+<p><%= link_to 'Back to recipe index', recipes_path %></p>
+<p><%= link_to 'Add a Recipe', new_recipe_path %>
