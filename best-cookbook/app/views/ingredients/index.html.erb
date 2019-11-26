@@ -1,0 +1,16 @@
+<h1>All Ingredients</h1>
+
+    <ul>
+        <% Ingredient.user_allergen_sort.each do |k, v| %>
+            <li><%= link_to Ingredient.find(k).name, ingredient_path(Ingredient.find(k)) %></li>
+        <% end %>
+            <% @ingredients.each do |ingredient| %>
+                <% if ingredient.allergens.count == 0 %>
+                    <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+                <% end %>
+            <% end %>
+    </ul>
+
+
+
+        

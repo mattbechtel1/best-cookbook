@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params(:name, :content))
+        @recipe = Recipe.new(recipe_params)
 
         # if @recipe.valid?
             @recipe.title_case
@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
         params.recipe.name.titlecase
     end
 
-    def recipe_params(*args)
-        params.require(:recipe).permit(*args)
+    def recipe_params
+        params.require(:recipe).permit(:name, :content, :user_id)
     end
 end

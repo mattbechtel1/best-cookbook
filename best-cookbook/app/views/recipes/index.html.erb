@@ -5,3 +5,11 @@
         <li><%= link_to recipe.name, recipe_path(recipe) %></li>
     <% end %>
 </ol>
+
+<%= Recipe.recipe_ingredient_count %>
+
+
+
+<% Ingredient.user_allergen_sort.each do |k, v| %>
+    <li><%= link_to Ingredient.find(k).name, ingredient_path(Ingredient.find(k)) %></li>
+<% end %>
