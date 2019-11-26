@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/recipes/sorted', to: 'recipes#index_sorted', as: 'recipes_sorted'
   resources :recipe_ingredients
   resources :allergens
   resources :ingredients

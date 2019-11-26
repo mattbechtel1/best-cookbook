@@ -5,6 +5,10 @@ class RecipesController < ApplicationController
         @recipes = Recipe.all
     end
 
+    def index_sorted
+        @recipes = Recipe.all
+    end
+
     def new
         @recipe = Recipe.new
     end

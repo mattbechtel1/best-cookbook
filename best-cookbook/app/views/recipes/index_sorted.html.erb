@@ -1,0 +1,9 @@
+<h1>Recipes Sorted by Number of Ingredients</h1>
+    <ol>
+        <% Recipe.recipe_ingredient_count.each do |k, v| %>
+            <li><%= link_to Recipe.find(k).name, recipe_path(Recipe.find(k)) %></li>
+        <% end %>
+    </ol>
+
+    <%= Recipe.recipe_ingredient_count %>
+

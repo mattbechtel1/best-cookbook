@@ -12,5 +12,3 @@ class Recipe < ApplicationRecord
         IngredientsRecipe.all.group(:recipe_id).count.sort_by { |k, v| -v }.to_h
     end
 end
-
-# Allergen.all.group(:ingredient_id).count.sort_by { |k, v| -v }.to_h
