@@ -1,6 +1,7 @@
 <h1><%= @recipe.name %></h1>
 
 <h2><%= "#{@recipe.name} recipe: "%></h2>
+<h5>by <%= link_to @recipe.user.name, user_path(@recipe.user) %></h5>
 
 <p><%= @recipe.content %></p>
 
