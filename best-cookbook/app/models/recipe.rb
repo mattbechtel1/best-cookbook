@@ -8,6 +8,7 @@ class Recipe < ApplicationRecord
     validates :name, length: {minimum: 3}
     validates :ingredient_ids, length: {minimum: 1, message: 'Recipe must include at least one ingredient'}
     validates :name, uniqueness: true
+    accepts_nested_attributes_for :ingredients
 
     def validation_messages
         error_messages = []

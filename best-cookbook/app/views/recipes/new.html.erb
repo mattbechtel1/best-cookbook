@@ -13,12 +13,12 @@
 
 
     <h3> Select Ingredients </h3> 
-    <% Ingredient.all.each do |ingredient| %>
-    <div>
-    <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id %> 
-    <%= ingredient.name %>
-    </div>
-    <% end %>
+        <% Ingredient.all.each do |ingredient| %>
+        <div>
+        <%= check_box_tag 'recipe[ingredient_ids][]', ingredient.id %> 
+        <%= ingredient.name %>
+        </div>
+        <% end %>
 
     <p><%= f.label :user_id %>
     <%= f.collection_select :user_id, User.all, :id, :name, prompt: true %></p>

@@ -11,12 +11,20 @@ class RecipesController < ApplicationController
 
     def new
         @recipe = Recipe.new
+        # @recipe.ingredients.build
+        # @recipe.ingredients.build
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        # new_ingredient_hash = params[:recipe][:ingredients_attributes]
 
+        @recipe = Recipe.new(recipe_params)
+        
         if @recipe.valid?
+            # new_ingredient_hash.each do |index, subhash|
+            #     Ingredient.create(subhash)
+            # end
+            # byebug
             @recipe.title_case
             @recipe.save
             redirect_to recipe_path(@recipe)
@@ -36,6 +44,9 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-        params.require(:recipe).permit(:name, :content, :user_id, ingredient_ids: [])
+        params.require(:recipe).permit(:name, :content, :user_id, ingredient_ids: []
+        # , 
+            # ingredients_attributes: [:name] 
+            )
     end
 end
